@@ -1,7 +1,7 @@
 #include <iostream>
 #include <cmath>
 
-#include "bisection.hpp"
+#include "falsePosition.hpp"
 
 double f(double);
 double g(double);
@@ -10,7 +10,7 @@ int main(int argc, char const *argv[])
 {
 	try
 	{
-		printf("%.8f\n", bisection(&f, 3, 4, 1e-4));
+		printf("%.8f\n", false_position(&f, 3, 4, 1e-5));
 	}
 	catch (const std::runtime_error &e)
 	{
