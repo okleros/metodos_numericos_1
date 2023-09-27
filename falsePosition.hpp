@@ -1,6 +1,6 @@
 #define MAX_ITER 100
 
-double false_position(double (*f) (double), long double a, long double b, long double epsilon = 1e-3)
+double false_position(long double (*f) (long double), long double a, long double b, long double epsilon = 1e-3)
 {
 	int num_iterations;
 	long double c;
@@ -14,7 +14,7 @@ double false_position(double (*f) (double), long double a, long double b, long d
 	
 	num_iterations = 0;
 
-	while ((double) std::abs(a - b) >= epsilon && num_iterations < MAX_ITER)
+	while ((long double) std::abs(a - b) >= epsilon && num_iterations < MAX_ITER)
 	{	
 		// std::cout << "|a - b| = " << (long double) std::abs((a - b)) << " epsilon = " << epsilon << std::endl;
 

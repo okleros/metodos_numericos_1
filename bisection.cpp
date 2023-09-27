@@ -3,8 +3,8 @@
 
 #include "bisection.hpp"
 
-double f(double);
-double g(double);
+long double f(long double);
+long double g(long double);
 
 int main(int argc, char const *argv[])
 {
@@ -22,14 +22,14 @@ int main(int argc, char const *argv[])
 
 // Função para aproximar PI
 
-double f(double x)
+long double f(long double x)
 {
 	return  2 * sin(x);
 }
 
 // Função para aproximar sqrt(2)
 
-double g(double x)
+long double g(long double x)
 {
 	return x * x - 2;
 }
