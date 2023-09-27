@@ -10,7 +10,7 @@ int main(int argc, char const *argv[])
 {
 	try
 	{
-		printf("%.8lf\n", false_position(&f, 3, 4, 1e-5));
+		printf("%.8Lf\n", false_position(&f, 3, 4, 1e-5));
 	}
 	catch (const std::runtime_error &e)
 	{
