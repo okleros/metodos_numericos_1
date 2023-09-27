@@ -1,6 +1,6 @@
 #define MAX_ITER 100
 
-double false_position(long double (*f) (long double), long double a, long double b, long double epsilon = 1e-3)
+long double false_position(long double (*f) (long double), long double a, long double b, long double epsilon = 1e-3)
 {
 	int num_iterations;
 	long double c;
