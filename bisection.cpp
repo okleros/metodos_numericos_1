@@ -10,7 +10,7 @@ int main(int argc, char const *argv[])
 {
 	try
 	{
-		printf("%.8Lf\n", bisection(&f, 3, 4, 1e-4));
+		printf("%.8Lf\n", bisection(&f, 3, 4, 1e-5));
 	}
 	catch (const std::runtime_error &e)
 	{
