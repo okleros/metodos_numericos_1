@@ -9,7 +9,7 @@ void payload_to_csv(Payload p, std::string path)
         std::ofstream archive (path);
         if(!archive.is_open())
         {
-            std::cerr << "couldn't open file" << std::endl;
+            std::cerr << "couldn't open file " + path << std::endl;
         }
 
         archive << Consts::payload_header << std::endl;
