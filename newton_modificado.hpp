@@ -4,8 +4,18 @@ Payload newton_modificado(double (*f) (double, double), double (*df) (double, do
     int num_iterations = 0;
     double d;
 
-    double inv_x0 = 1 / df(a, d0);
+    double x0 = df(a, d0);
+
+    if (x0 == 0) {
+        std::cerr << "newton_modificado(): df(d) = 0" << std::endl;
     
+        return p;
+    }
+        
+    double inv_x0 = 1 / x0;
+
+    std::cout << inv_x0 << std::endl;
+
     do
     {
         d = d0 - f(a, d0) * inv_x0;

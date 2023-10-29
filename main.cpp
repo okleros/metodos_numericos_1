@@ -16,7 +16,7 @@ int main(int argc, char const *argv[])
 	bool verbose = false;
 
 	Payload p1, p2, p3;
-	double a, e;
+	long double a, e;
 	int n;
 
 	if (argc >= 3)

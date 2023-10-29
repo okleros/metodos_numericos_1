@@ -1,5 +1,5 @@
 all:
-	g++ -o main main.cpp -O2 -Wall -Wextra -ffast-math
+	g++ -o main main.cpp -O3 -Wall -Wextra -ffast-math
 
 run:
 	./main -verbose
