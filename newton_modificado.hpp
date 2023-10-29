@@ -14,8 +14,6 @@ Payload newton_modificado(double (*f) (double, double), double (*df) (double, do
         
     double inv_x0 = 1 / x0;
 
-    std::cout << inv_x0 << std::endl;
-
     do
     {
         d = d0 - f(a, d0) * inv_x0;
