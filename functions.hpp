@@ -1,3 +1,5 @@
+// FUNÇÃO E SUA DERIVADA
+
 #include <cmath>
 
 double f(double a, double d)

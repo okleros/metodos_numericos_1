@@ -19,6 +19,7 @@ int main(int argc, char const *argv[])
 	long double a, e;
 	int n;
 
+	// CUIDA DO CASO EM QUE O PROGRAMA SERÁ RODADO APENAS UMA VEZ COM OS PARÂMETROS FORNECIDOS
 	if (argc >= 3)
 	{
 		a = std::stod(argv[1]);
@@ -27,10 +28,12 @@ int main(int argc, char const *argv[])
 		if (argc == 4 && std::strcmp(argv[3], "-verbose") == 0)
 			verbose = true;
 
+		// CADA MÉTODO RETORNA UM Payload, QUE É UMA ESTRUTURA DE DADOS CRIADA ESPECIALMENTE PARA O ARMAZENAMENTO DOS DADOS DE CADA MÉTODO
 		p1 = metodo_secante(&f, a, 0.5, 1.0, e);
 		p2 = newton_raphson(&f, &df, a, 0.5, e);
 		p3 = newton_modificado(&f, &df, a, 0.5, e);
 		
+		// SE O PARÂMETRO VERBOSE ESTIVER ATIVO, O PROGRAMA IRÁ MOSTRAR OS RESULTADOS DOS MÉTODOS NO TERMINAL, ALÉM DE SALVAR EM .CSV
 		if (verbose)
 		{
 			std::cout << std::endl << "metodo_secante()" << std::endl;
@@ -41,10 +44,12 @@ int main(int argc, char const *argv[])
 			print_test_table(p3);
 		}
 		
+		// AQUI FAZEMOS O SALVAMENTO DOS ARQUIVOS .CSV, COM NOMES ÚNICOS DEPENDENDO DO VALOR DE a E epsilon
 		payload_to_csv(p1, "metodo_secante_a=" + std::to_string(a) + "_e=" + std::to_string(e) + ".csv");
 		payload_to_csv(p2, "newton_raphson_a=" + std::to_string(a) + "_e=" + std::to_string(e) + ".csv");
 		payload_to_csv(p3, "newton_modificado_a=" + std::to_string(a) + "_e=" + std::to_string(e) + ".csv");
 	}
+	// CUIDA DO CASO EM QUE O PROGRAMA SERÁ RODADO n VEZES COM OS PARÂMETROS FORNECIDOS PARA CADA n
 	else
 	{
 		if (argc == 2 && std::strcmp(argv[1], "-verbose") == 0)

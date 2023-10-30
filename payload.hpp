@@ -3,10 +3,13 @@
 #include <iomanip>
 #include <algorithm>
 
+// NAMESPACE CONTENDO O HEADER DO ARQUIVO .CSV
 namespace Consts {
 	const std::string payload_header = "K,d,\tf(d),\terro";
 }
 
+/* ESTRUTURA DE DADOS FEITA PARA GUARDAR OS DADOS DOS MÉTODOS
+PARA CADA ITERAÇÃO, INDEXADO POR NÚMERO DA ITERAÇÃO */
 struct Epoch
 {
     double a, b, c;
@@ -30,7 +33,8 @@ struct Epoch
     }
 };
 
-
+/* ESTRUTURA DE DADOS QUE CONTEM OS DADOS DE TODAS AS ITERAÇÕES
+DE CADA MÉTODO, COMO SE FOSSE UM VETOR DE Epochs */
 struct Payload
 {
 	std::vector<Epoch> epochs;
@@ -38,6 +42,8 @@ struct Payload
 	void insert(Epoch e) { epochs.push_back(e); }
 };
 
+/* FUNÇÃO QUE DADO UM Payload QUALQUER, IMPRIME O CONTEÚDO DO PLAYLOAD
+NA TELA, CONSIDERANDO O HEADER E LINHAS DE SEPARAÇÃO */
 void print_test_table(Payload p)
 {
     char char_to_replace = ',';

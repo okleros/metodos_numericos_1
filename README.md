@@ -16,12 +16,15 @@ Antes de executar o código, você precisa do seguinte:
 
 2. Navegue até o diretório onde o código está localizado.
 
-3. Compile o código usando o comando `make`:
+3. Compile o código usando o seguinte comando para usar o Makefile fornecido:
 
    ```bash
    make
    ```
 
+   Isso irá compilar o código usando o Makefile e gerar um executável chamado 'main' que você pode rodar.
+
+Agora, o Makefile incluirá as opções de otimização (-O3), ativação de avisos (-Wall e -Wextra), e o uso de otimizações de ponto flutuante rápidas (-ffast-math) durante a compilação do código. Você pode usar o Makefile fornecido para compilar o código com essas configurações.
 Isso irá compilar o código e gerar um executável que você pode rodar.
 
 ## Executando o Programa

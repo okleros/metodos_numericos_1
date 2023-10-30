@@ -1,23 +1,25 @@
-#pragma once
-
 #include <fstream>
 
+/* FUNÇÃO QUE EXPORTA UM DADO Payload PARA UM DADO
+ARQUIVO ESPECIFICADO EM NOME PELA STRING path */
 void payload_to_csv(Payload p, std::string path)
 {
     try
     {
-        std::ofstream archive (path);
-        if(!archive.is_open())
+        std::ofstream file(path);
+        if(!file.is_open())
         {
             std::cerr << "couldn't open file " + path << std::endl;
         }
 
-        archive << Consts::payload_header << std::endl;
+        file << Consts::payload_header << std::endl;
         
         for(Epoch ep : p.epochs)
         {
-            archive << ep.get_string() << std::endl;
+            file << ep.get_string() << std::endl;
         }
+
+        file.close();
 
     } catch (std::exception& ex)
     {
