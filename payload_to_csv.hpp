@@ -4,9 +4,9 @@
 ARQUIVO ESPECIFICADO EM NOME PELA STRING path */
 void payload_to_csv(Payload p, std::string path)
 {
-    try
-    {
+    try {
         std::ofstream file(path);
+        
         if(!file.is_open())
         {
             std::cerr << "couldn't open file " + path << std::endl;
@@ -21,8 +21,8 @@ void payload_to_csv(Payload p, std::string path)
 
         file.close();
 
-    } catch (std::exception& ex)
-    {
+    } catch (std::exception& ex) {
         std::cerr << "ERRO: " << ex.what() << std::endl;
+    
     }
 }

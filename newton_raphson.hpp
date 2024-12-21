@@ -1,4 +1,4 @@
-Payload newton_raphson(double (*f) (double, double), double (*df) (double, double), double a, double d0, double epsilon)
+Payload newton_raphson(func f, func df, double a, double d0, double epsilon)
 {
 	Payload p;
 	int num_iterations = 0;
@@ -6,10 +6,10 @@ Payload newton_raphson(double (*f) (double, double), double (*df) (double, doubl
 
 	do
 	{
-		double dfd0 = df(a, d0);
+		double dfd0 = df(d0, a);
 
 		// FUNÇÃO DE ITERAÇÃO
-		d = d0 - f(a, d0) / dfd0;
+		d = d0 - f(d0, a) / dfd0;
 
 		// DIVISÃO POR 0 INCORRE EM ERROS, ENTÃO NOTIFICAMOS QUE O MÉTODO DEU ERRO E SAÍMOS
 		if (dfd0 == 0)
@@ -19,20 +19,17 @@ Payload newton_raphson(double (*f) (double, double), double (*df) (double, doubl
 			break;
 		}
 
-		// SPDG (VIDE MÉTODO SECANTE)
-		Epoch e(num_iterations, d, f(a, d), std::abs(d - d0));
+		Epoch e(num_iterations, d, f(d, a), std::abs(d - d0));
 
-		// SPDG (VIDE MÉTODO SECANTE)
 		p.insert(e);
 
 		d0 = d;
 		num_iterations++;
 
-	} while (std::abs(f(a, d)) > epsilon && num_iterations < MAX_ITER);
+	} while (std::abs(f(d, a)) > epsilon && num_iterations < MAX_ITER);
 	
-	// SPDG (VIDE MÉTODO SECANTE)
 	if (d > MAX_CM)
-		std::cerr << "newton_raphson(): root surpassed the 0.7cm limit" << std::endl;
+        std::cerr << "newton_raphson(): root surpassed the " << MAX_CM << "cm limit" << std::endl;
 
 	return p;
 }

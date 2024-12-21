@@ -1,13 +1,11 @@
-// FUNÇÃO E SUA DERIVADA
+    #include <cmath>
 
-#include <cmath>
-
-double f(double a, double d)
-{
-    return a * std::exp(d) - 4 * pow(d, 2);
+// função principal f(d) = a*d - d*ln(d)
+double f(double d, double a) {
+    return a * d - d * log(d);
 }
 
-double df(double a, double d)
-{
-    return a * std::exp(d) - 8 * d;
+// função para o método de Newton-Raphson
+double df(double d, double a) {
+    return a - log(d) - 1;
 }
